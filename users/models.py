@@ -18,8 +18,8 @@ class Profile(models.Model):
 
         img = Image.open(self.image.path)
 
-        if img.width > 350 or img.height > 350:
-            memory_size = (350, 350)
+        if img.width > 250 or img.height > 250:
+            memory_size = (250, 250)
             img.thumbnail(memory_size)
             img.save(self.image.path)
-# Create your models here.
+
