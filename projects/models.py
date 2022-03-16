@@ -22,3 +22,6 @@ class Project(models.Model):
             memory_size = (350, 350)
             image.thumbnail(memory_size)
             image.save(self.image.path)
+
+    def get_absolute_url(self):
+        return reverse('home')
