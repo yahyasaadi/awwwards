@@ -1,0 +1,21 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+    {% for project in projects %}
+        <article class="media register-section mt-3">
+            <div class="media-body">
+                <div class="article-metadata">
+                    {{ project.author }}
+                    <small class="text-muted">{{ project.date_posted|date:'F d, Y' }}</small>
+                </div>
+                <a href="#">
+                    <img class="img-thumbnail article-img" src="{{ project.image.url }}" >
+                </a>
+                <div>
+                    <a class="mr-2" href="#">{{ project.author }}</a>
+                    <p class="article-content">{{ project.description }}</p>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}
