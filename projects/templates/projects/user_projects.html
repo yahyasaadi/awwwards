@@ -1,0 +1,21 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+    {% for project in object_list %}
+        <article class="media register-section mt-3">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ project.title }}</a> by:
+                    <a class="mr-2" href="#">{{ project.author }}</a>
+                </div>
+                <a href="{% url 'project-detail' project.id %}">
+                    <img class="img-thumbnail article-img" src="{{ project.image.url }}">
+                </a>
+                <div>
+                    <small class="text-muted"> Posted on {{ project.date_posted|date:'F d, Y' }}</small>
+                </div>
+                
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}
