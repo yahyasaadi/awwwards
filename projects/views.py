@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, CreateView, DetailView
 from rest_framework import viewsets, permissions
 from users.models import Profile
-from .models import Project
+from .models import Project, Review
 from .serializers import ProfileSerializer, ProjectSerializer
 
 # Create your views here.
@@ -55,6 +55,21 @@ def search(request):
 		return render(request, 'projects/search.html')
 
 
+
+
+def review_rating(request):
+    if request.method == 'GET':
+        proj_id = request.GET.get('proj_id')
+        project = Project.objects.get(id=proj_id)
+        comment = request.GET.get('comment')
+        design_rate = request.GET.get('design_rate')
+        content_rate = request.GET.get('content_rate')
+        usability_rate = request.GET.get('usability_rate')
+        user = request.user
+
+        review = Review(user=user, project=project, comment=comment, design_rate=design_rate, content_rate=content_rate, usability_rate=usability_rate)
+        review.save()
+        return redirect('home')
 
 
 # API Views
