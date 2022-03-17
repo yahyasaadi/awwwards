@@ -9,7 +9,7 @@ from PIL import Image
 class Project(models.Model):
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='images')
-    url = models.URLField(max_length=250, null=True)
+    site_link = models.URLField(max_length=250, null=True)
     description = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -21,5 +21,6 @@ urlpatterns = [
     path('user/<str:username>', UserProjectListView.as_view(), name='user-projects'),
     path('search/', views.search, name='search'),
     path('review/', views.review_rating, name='review'),
+    # path('reviews/<int:pk>/', views.view_reviews, name='reviews'),
     path('api/', include(router.urls)),
 ]

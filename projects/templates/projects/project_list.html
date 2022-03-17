@@ -2,7 +2,7 @@
 
 {% block content %}
     {% for post in object_list %}
-        <article class="media register-section mt-3">
+        <!-- <article class="register-section mt-3">
             <div class="media-body">
                 <div class="article-metadata">
                     <a class="mr-2" href="#">{{ post.title }}</a> by:
@@ -14,8 +14,40 @@
                 <div>
                     <small class="text-muted"> Posted on {{ post.date_posted|date:'F d, Y' }}</small>
                 </div>
-                
             </div>
-        </article>
+        </article> -->
+        <!-- <section class="container-fluid list-section">
+            <div class="d-flex d-row g-4">
+                <a href="" class="mr-2">{{ post.title }}</a>
+            </div>
+            <div>
+                <a href="{% url 'project-detail' post.id %}">
+                    <img class="img-thumbnail " src="{{ post.image.url }}">
+                </a>
+            </div>
+        </section> -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <a href="{% url 'project-detail' post.id %}">
+                            <img class="card-img-top" src="{{ post.image.url }}" alt="">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">
+                                {{ post.description }}
+                            </p>
+                            <!-- Link below showing an error -->
+                            <!-- to try  -->
+                            <a href="#" target="_blank" class="btn btn-outline-primary btn-sm">
+                                Live Link
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
     {% endfor %}
 {% endblock %}
