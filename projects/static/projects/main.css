@@ -1,0 +1,16 @@
+
+.register-section{
+    padding: 0 2rem;
+    margin-left: 0 7rem;
+    /* margin-top: 6rem; */
+}
+
+/* .style-card{
+    display: grid;
+    place-items: center;
+} */
+
+.list-section{
+    display: grid;
+    place-items: center;
+}
