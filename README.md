@@ -1,4 +1,4 @@
-# INSTAGRAM CLONE
+# AWWWARDS
 
 ## Description
 
